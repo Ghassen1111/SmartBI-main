@@ -1,0 +1,86 @@
+<div class="col-lg-12 grid-margin stretch-card" style="margin-top: 70px;">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Tableau Factures</h4>
+        <div class="row">
+          <div class="col-4">
+          </div>
+          <div class="col-4">
+            <input type="text" class="input-group form-control" [(ngModel)]="termId" name="Search"
+            placeholder="Search by REF" style="border-color:rgb(11, 1, 154);width:380px;height:40px;margin-top:5px;">
+          </div>
+          <div class="col-4">
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>
+                  REF
+                </th>
+                <th>
+                  image produit
+                </th>
+                <th>
+                  Nom produit
+                </th>
+                <th>
+                  quantité
+                </th>
+                <th>
+                  Prix
+               </th>
+                <th>
+                  TVA
+                </th>
+                <th>
+                  Total Prix
+                </th>
+                <th>
+                   Date
+                </th>
+                <th>
+                  Afficher
+                </th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let F of pageOfItems">
+              <tr>
+                <td style="color: rgb(4, 0, 128);">
+                  {{F._id}}
+                </td>
+                <td class="py-1">
+                  <img [src]="F.product[0].avatar" alt="image"/>
+                </td>
+                <td>
+                  {{F.product[0].name}}
+                </td>
+                <td>
+                  {{F.qty}}
+                </td>
+                <td>
+                  {{F.product[0].prix}}DT
+                </td>
+                <td>
+                  {{F.TVA}}DT
+                </td>
+                <td>
+                  {{F.totalPrix}}DT
+                </td>
+                <td>
+                  {{F.date}}
+                </td>
+                <td>
+                <button (click)="displayFacture(F._id)" type="button" class="btn btn-inverse-success">afficher</button> 
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div>
+            <jw-pagination [items]="facturesTab| filterId:termId" (changePage)="onChangePage($event)"[pageSize]="10"></jw-pagination>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>

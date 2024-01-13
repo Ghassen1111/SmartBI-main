@@ -1,0 +1,163 @@
+.stock-status,
+.cart-status {
+  margin: 5px 0px;
+  font-family: Verdana, Arial;
+}
+
+.stock-button {
+  background: transparent;
+  padding: 7px 11px 10px 3px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.out-of-stock .stock-button {
+  color: #F33;
+  border: 1px solid #F33;
+}
+
+.stock-button .fa {
+  font-size: 13px;
+  color: #FFF;
+  margin: 0px 5px;
+}
+
+.in-stock .stock-button {
+  color: #2BB700;
+  border: 1px solid #2BB700;
+}
+
+.stock-status .circle-icon.fa-times {
+  background: #F33;
+  padding: 4px 5px;
+  border-radius: 50%;
+}
+
+.stock-status .circle-icon.fa-check {
+  background: #2BB700;
+  padding: 4px 6px;
+  border-radius: 50%;
+}
+
+.in-stock .stock-button:hover {
+  background: #2BB700;
+  color: #FFF;
+}
+
+.in-stock .stock-button:hover .fa {
+  background: #FFF;
+  color: #2BB700;
+}
+
+.out-of-stock .stock-button:hover {
+  background: #F33;
+  color: #FFF;
+}
+
+.out-of-stock .stock-button:hover .fa {
+  background: #FFF;
+  color: #F33;
+}
+
+.cart-status .cart-button {
+  background: transparent;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 11px;
+  border-radius: 5px;
+  font-family: Verdana, Arial;
+  cursor: pointer;
+}
+
+
+.cart-button.small-cart-button {
+  padding: 12px 15px 12px 15px;
+  font-size: 10px;
+}
+
+.cart-button.medium-cart-button {
+  padding: 16px 24px 16px 24px;
+  font-size: 11px;
+}
+
+.cart-button.large-cart-button {
+  padding: 18px 30px 18px 30px;
+  font-size: 12px;
+}
+
+.cart-status .cart-button {
+  color: #F33;
+  border: 1px solid #F33;
+}
+
+.cart-status .cart-button:hover {
+  color: #FFF;
+  border: 1px solid #F33;
+  background: #F33;
+}
+
+.product-status {
+  margin: 10px 0px;
+  font-family: Verdana, Arial;
+  display: block;
+}
+
+.product-status .label {
+  color: #FFF;
+  padding: 6px;
+  font-weight: bold;
+  font-size: 10px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  -moz-box-shadow: 0px 1px 1px 2px #ccc;
+  -webkit-box-shadow: 0px 1px 1px 2px #ccc;
+  box-shadow: 0px 1px 1px 2px #ccc;
+}
+
+.product-status .featured-button {
+  background: #F45347;
+  border: 1px solid #F45347;
+}
+
+.product-status .sale-button {
+  background: #CE2B1F;
+  border: 1px solid #CE2B1F;
+}
+
+.product-status .new-button {
+  background: #2FAD08;
+  border: 1px solid #2FAD08;
+}
+
+.product-status .popular-button {
+  background: #1A87D6;
+  border: 1px solid #1A87D6;
+}
+
+.social-icon {
+  margin: 10px 0px;
+}
+
+.social-icon ul li {
+  float: left;
+  cursor: pointer;
+}
+
+.social-facebook {
+  color: #2C5FA4;
+}
+
+.social-twitter {
+  color: #00C0F2;
+}
+
+.social-google {
+  color: #EB5B46;
+}
+
+.social-instagram {
+  color: #A26E4C;
+}

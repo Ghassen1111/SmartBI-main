@@ -1,0 +1,206 @@
+body
+{
+  background-color: #fff;
+  font-family: Helvetica Neue, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body{
+  width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 60px;
+
+}
+
+
+
+.product_img{
+  width: 580px;
+}
+
+.product_img img{
+  width: 100%;
+}
+
+
+.product_info{
+  width: 260px;
+  text-align: justify;
+}
+
+.product_title{
+  font-size: 1.6em; 
+  color: #233F59;
+  padding: 10px;
+}
+.product_model{
+  padding: 10px;
+  color: #878686;
+  font-size: .8rem;
+  
+}
+.product_price{
+  padding: 10px;
+  color: #615F5F;
+  font-size: 1.8rem;
+}
+.product_descr{
+  color: #615F5F;
+  padding: 10px;
+}
+.product_color{
+  color: #878686;
+  padding: 10px;
+}
+
+.add_to_cart{
+  width: 100%;
+  padding: 12px 0;
+  background-color: #BF9860;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+.add_to_cart:hover{
+  background-color: #d8b88a;
+  
+}
+.product_quantity {
+color: #878686;
+padding: 10px;}
+
+.product_quantity input[type="number"]{
+  border: 1px solid lightgray;
+  width: 80px;
+  font-size: 1.8em;
+  margin: 10px 0;
+  padding: 5px;
+  text-align:center;
+  color: #878686;
+  box-sizing: border-box;
+}
+
+@media(max-width: 960px)
+{
+  .body{
+    width: 100%;
+  }
+
+}
+@media (max-width: 640px)
+{
+    .product_info{
+    width: 100%;
+    text-align: center;
+   }
+}
+/* text */
+/* reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  min-height: 100vh;
+  padding: 20px;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* other */
+.info {
+  margin: 20px 0;
+  text-align: center;
+}
+
+p {
+  color: #2e2e2e;
+  margin-bottom: 20px;
+}
+
+
+/* block-$ */
+.block-effect {
+  font-size: calc(8px + 6vw);
+}
+
+.block-reveal {
+  --t: calc(var(--td) + var(--d));
+
+  color: transparent;
+  padding: 4px;
+
+  position: relative;
+  overflow: hidden;
+
+  animation: revealBlock 0s var(--t) forwards;
+}
+
+.block-reveal::after {
+  content: '';
+
+  width: 0%;
+  height: 100%;
+  padding-bottom: 4px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: var(--bc);
+  animation: revealingIn var(--td) var(--d) forwards, revealingOut var(--td) var(--t) forwards;
+}
+
+
+/* animations */
+@keyframes revealBlock {
+  100% {
+    color: #0f0f0f;
+  }
+}
+
+@keyframes revealingIn {
+
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes revealingOut {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+
+}
+
+.abs-site-link {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  color: hsla(0, 0%, 0%, .6);
+  font-size: 16px;
+}

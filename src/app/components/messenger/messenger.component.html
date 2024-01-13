@@ -1,0 +1,60 @@
+<div class="container py-5 px-4">
+    <div class="row rounded-lg overflow-hidden shadow" style="margin-top:70px;">
+        <!-- Users box-->
+        <div class="col-5 px-0">
+            <div class="bg-white">
+
+                <div class="bg-gray px-4 py-2 bg-light">
+                    <p class="h5 mb-0 py-1">messenger</p>
+                </div>
+
+                <div class="messages-box">
+                    <div class="list-group rounded-0" *ngFor="let M of usersTab" (click)="idUserMessenger(M._id)">
+                        <a class="list-group-item list-group-item-action text-white rounded-0" *ngIf="M.role=='entreprise'">
+                            <div class="media"><img [src]="M.avatar"
+                                    alt="user" width="50" height="50" class="rounded-circle">
+                                <div class="media-body ml-4">
+                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                        <h6 class="mb-0">{{M.name}}</h6>
+                                    </div>
+                                    <p class="font-italic mb-0 text-small">directeur général</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action text-white rounded-0" *ngIf="M.role=='Admin'">
+                            <div class="media"><img src="assets/img/small-logo.png"
+                                    alt="user" width="50" height="50" class="rounded-circle">
+                                <div class="media-body ml-4">
+                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                        <h6 class="mb-0">SmartBI</h6>
+                                    </div>
+                                    <p class="font-italic mb-0 text-small">{{M.role}}</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action text-white rounded-0" *ngIf="(M.role !='entreprise')&&(M.role !='Admin')">
+                            <div class="media"><img [src]="M.avatar"
+                                    alt="user" width="50" height="50" class="rounded-circle">
+                                <div class="media-body ml-4">
+                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                        <h6 class="mb-0">{{M.firstName}} {{M.lastName}}</h6>
+                                    </div>
+                                    <p class="font-italic mb-0 text-small" *ngIf="M.post=='responsable'">{{M.role}}</p>
+                                    <p class="font-italic mb-0 text-small" *ngIf="M.role=='employeur logistique'">assistante logistique</p>
+                                    <p class="font-italic mb-0 text-small" *ngIf="M.role=='employeur commercial'">assistante commercial</p>
+                                    <p class="font-italic mb-0 text-small" *ngIf="M.role=='employeur financier'">assistante financier</p>
+                                    <p class="font-italic mb-0 text-small" *ngIf="M.role=='employeur technique'">assistante technique</p>
+                                    <p class="font-italic mb-0 text-small" *ngIf="M.role=='fournisseur'">Client</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Chat Box-->
+        <div class="col-7 px-0">
+            <app-chat></app-chat>
+        </div>
+    </div>
+</div>

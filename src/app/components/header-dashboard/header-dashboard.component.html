@@ -1,0 +1,903 @@
+<!-- admin -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" *ngIf="!adminIsAuthenticated">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+      style="background-color:#ede6e3b1;">
+      <a class="navbar-brand brand-logo mr-5" style="width: 1000px;"><img src="assets/images/smartbi3-removebg-preview.png"  class="mr-2"
+          alt="logo" /></a>
+          <img src="assets/img/avatar-messenger.png" width="63" height="63" (click)="messengerEntreprise()" alt="profile" />
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" style="background-color: #ede6e3b1;">
+      <ul class="navbar-nav navbar-nav-right">
+        <li style="margin-right:653px;"  class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <img [src]="avatar" alt="profile" />
+            <div class="cursor" onclick="document.querySelector('.dots').classList.toggle('active');"></div>
+          </a>
+        </li>
+        <div class="dots" style="margin-right:320px;">
+          <div class="shadow cut"></div>
+          <div class="container cut">
+            <div class="drop cut2" style="background-color: rgba(255, 0, 0, 0);"></div>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <a (click)="profile()" style="color: rgb(3, 187, 0);">
+                  <i class="ti-user"></i>
+                  profile
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/feed/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-linkedin"></i>
+                  linkedin
+                </a>
+              </li>
+              <li>
+                <a href="https://www.google.com/" style="color: rgb(255, 154, 1);">
+                  <i class="ti-google"></i>
+                  google
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-facebook"></i>
+                  facebook
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" style="color: rgb(255, 1, 1);">
+                  <i class="ti-youtube"></i>
+                  youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://outlook.office.com/mail/" style="color: rgb(0, 17, 255);">
+                  <i class="ti-email"></i>
+                  outlook
+                </a>
+              </li>
+              <li style="margin-bottom:50px;">
+                <a (click)="onLogout()" style="color: rgb(0, 0, 0);">
+                  <i class="ti-power-off"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+      <button (click)="onLogout()" type="button" class="btn btn-inverse-danger btn-icon">
+        <i class="ti-power-off"></i>
+      </button>
+    </div>
+  </nav>
+<!-- entreprise -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" *ngIf="!entrepriseIsAuthenticated">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+      style="background-color:#ede6e3b1;">
+      <a class="navbar-brand brand-logo mr-5" style="width: 1000px;"><img src="assets/images/smartbi3-removebg-preview.png"  class="mr-2"
+          alt="logo" /></a>
+          <img src="assets/img/avatar-messenger.png" width="63" height="63" (click)="messengerEntreprise()" alt="profile" />
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+      style="background-color: #ede6e3b1;">
+      <ul class="navbar-nav navbar-nav-right">
+        <li style="margin-right:653px;" class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <img [src]="avatar" alt="profile" />
+            <div class="cursor" onclick="document.querySelector('.dots').classList.toggle('active');"></div>
+          </a>
+        </li>
+        <div class="dots" style="margin-right:320px;">
+          <div class="shadow cut"></div>
+          <div class="container cut">
+            <div class="drop cut2" style="background-color: rgba(255, 0, 0, 0);"></div>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <a (click)="profile()" style="color: rgb(3, 187, 0);">
+                  <i class="ti-user"></i>
+                  profile
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/feed/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-linkedin"></i>
+                  linkedin
+                </a>
+              </li>
+              <li>
+                <a href="https://www.google.com/" style="color: rgb(255, 154, 1);">
+                  <i class="ti-google"></i>
+                  google
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-facebook"></i>
+                  facebook
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" style="color: rgb(255, 1, 1);">
+                  <i class="ti-youtube"></i>
+                  youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://outlook.office.com/mail/" style="color: rgb(0, 17, 255);">
+                  <i class="ti-email"></i>
+                  outlook
+                </a>
+              </li>
+              <li style="margin-bottom:50px;">
+                <a (click)="onLogout()" style="color: rgb(0, 0, 0);">
+                  <i class="ti-power-off"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+      <button (click)="onLogout()" type="button" class="btn btn-inverse-dark btn-icon">
+        <i class="ti-power-off"></i>
+      </button>
+    </div>
+  </nav>
+  <!--responsable ressources humaines -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" *ngIf="!rrhIsAuthenticated">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+      style="background-color:#ede6e3b1;">
+      <a class="navbar-brand brand-logo mr-5" style="width: 1000px;"><img src="assets/images/smartbi3-removebg-preview.png"  class="mr-2"
+          alt="logo" /></a>
+          <img src="assets/img/avatar-messenger.png" width="63" height="63" (click)="messenger()" alt="profile" />
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+      style="background-color: #ede6e3b1;">
+      <ul class="navbar-nav navbar-nav-right">
+        <li style="margin-right:653px;"  class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <img [src]="avatar" alt="profile" />
+            <div class="cursor" onclick="document.querySelector('.dots').classList.toggle('active');"></div>
+          </a>
+        </li>
+        <div class="dots" style="margin-right:320px;">
+          <div class="shadow cut"></div>
+          <div class="container cut">
+            <div class="drop cut2" style="background-color: rgba(255, 0, 0, 0);"></div>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <a (click)="profile()" style="color: rgb(3, 187, 0);">
+                  <i class="ti-user"></i>
+                  profile
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/feed/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-linkedin"></i>
+                  linkedin
+                </a>
+              </li>
+              <li>
+                <a href="https://www.google.com/" style="color: rgb(255, 154, 1);">
+                  <i class="ti-google"></i>
+                  google
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-facebook"></i>
+                  facebook
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" style="color: rgb(255, 1, 1);">
+                  <i class="ti-youtube"></i>
+                  youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://outlook.office.com/mail/" style="color: rgb(0, 17, 255);">
+                  <i class="ti-email"></i>
+                  outlook
+                </a>
+              </li>
+              <li style="margin-bottom:50px;">
+                <a (click)="onLogout()" style="color: rgb(0, 0, 0);">
+                  <i class="ti-power-off"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+      <button (click)="onLogout()" type="button" class="btn btn-inverse-dark btn-icon">
+        <i class="ti-power-off"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- responsable logistique -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" *ngIf="!rlIsAuthenticated">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+      style="background-color:#ede6e3b1;">
+      <a class="navbar-brand brand-logo mr-5" style="width: 1000px;"><img src="assets/images/smartbi3-removebg-preview.png"  class="mr-2"
+          alt="logo" /></a>
+          <img src="assets/img/avatar-messenger.png" width="63" height="63" (click)="messenger()" alt="profile" />
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+      style="background-color: #ede6e3b1;">
+      <ul class="navbar-nav navbar-nav-right">
+        <li style="margin-right:653px;"  class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <img [src]="avatar" alt="profile" />
+            <div class="cursor" onclick="document.querySelector('.dots').classList.toggle('active');"></div>
+          </a>
+        </li>
+        <div class="dots" style="margin-right:320px;">
+          <div class="shadow cut"></div>
+          <div class="container cut">
+            <div class="drop cut2" style="background-color: rgba(255, 0, 0, 0);"></div>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <a (click)="profile()" style="color: rgb(3, 187, 0);">
+                  <i class="ti-user"></i>
+                  profile
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/feed/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-linkedin"></i>
+                  linkedin
+                </a>
+              </li>
+              <li>
+                <a href="https://www.google.com/" style="color: rgb(255, 154, 1);">
+                  <i class="ti-google"></i>
+                  google
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-facebook"></i>
+                  facebook
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" style="color: rgb(255, 1, 1);">
+                  <i class="ti-youtube"></i>
+                  youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://outlook.office.com/mail/" style="color: rgb(0, 17, 255);">
+                  <i class="ti-email"></i>
+                  outlook
+                </a>
+              </li>
+              <li style="margin-bottom:50px;">
+                <a (click)="onLogout()" style="color: rgb(0, 0, 0);">
+                  <i class="ti-power-off"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+      <button (click)="onLogout()" type="button" class="btn btn-inverse-dark btn-icon">
+        <i class="ti-power-off"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- responsable commercial -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" *ngIf="!rcIsAuthenticated">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+      style="background-color:#ede6e3b1;">
+      <a class="navbar-brand brand-logo mr-5" style="width: 1000px;"><img src="assets/images/smartbi3-removebg-preview.png"  class="mr-2"
+          alt="logo" /></a>
+          <img src="assets/img/avatar-messenger.png" width="63" height="63" (click)="messenger()" alt="profile" />
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+      style="background-color: #ede6e3b1;">
+      <ul class="navbar-nav navbar-nav-right">
+        <li style="margin-right:653px;" class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <img [src]="avatar" alt="profile" />
+            <div class="cursor" onclick="document.querySelector('.dots').classList.toggle('active');"></div>
+          </a>
+        </li>
+        <div class="dots" style="margin-right:320px;">
+          <div class="shadow cut"></div>
+          <div class="container cut">
+            <div class="drop cut2" style="background-color: rgba(255, 0, 0, 0);"></div>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <a (click)="profile()" style="color: rgb(3, 187, 0);">
+                  <i class="ti-user"></i>
+                  profile
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/feed/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-linkedin"></i>
+                  linkedin
+                </a>
+              </li>
+              <li>
+                <a href="https://www.google.com/" style="color: rgb(255, 154, 1);">
+                  <i class="ti-google"></i>
+                  google
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-facebook"></i>
+                  facebook
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" style="color: rgb(255, 1, 1);">
+                  <i class="ti-youtube"></i>
+                  youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://outlook.office.com/mail/" style="color: rgb(0, 17, 255);">
+                  <i class="ti-email"></i>
+                  outlook
+                </a>
+              </li>
+              <li style="margin-bottom:50px;">
+                <a (click)="onLogout()" style="color: rgb(0, 0, 0);">
+                  <i class="ti-power-off"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+      <button (click)="onLogout()" type="button" class="btn btn-inverse-dark btn-icon">
+        <i class="ti-power-off"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- responsable financier -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" *ngIf="!rfIsAuthenticated">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+      style="background-color:#ede6e3b1;">
+      <a class="navbar-brand brand-logo mr-5" style="width: 1000px;"><img src="assets/images/smartbi3-removebg-preview.png"  class="mr-2"
+          alt="logo" /></a>
+          <img src="assets/img/avatar-messenger.png" width="63" height="63" (click)="messenger()" alt="profile" />
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+      style="background-color: #ede6e3b1;">
+      <ul class="navbar-nav navbar-nav-right">
+        <li style="margin-right:653px;" class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <img [src]="avatar" alt="profile" />
+            <div class="cursor" onclick="document.querySelector('.dots').classList.toggle('active');"></div>
+          </a>
+        </li>
+        <div class="dots" style="margin-right:320px;">
+          <div class="shadow cut"></div>
+          <div class="container cut">
+            <div class="drop cut2" style="background-color: rgba(255, 0, 0, 0);"></div>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <a (click)="profile()" style="color: rgb(3, 187, 0);">
+                  <i class="ti-user"></i>
+                  profile
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/feed/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-linkedin"></i>
+                  linkedin
+                </a>
+              </li>
+              <li>
+                <a href="https://www.google.com/" style="color: rgb(255, 154, 1);">
+                  <i class="ti-google"></i>
+                  google
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-facebook"></i>
+                  facebook
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" style="color: rgb(255, 1, 1);">
+                  <i class="ti-youtube"></i>
+                  youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://outlook.office.com/mail/" style="color: rgb(0, 17, 255);">
+                  <i class="ti-email"></i>
+                  outlook
+                </a>
+              </li>
+              <li style="margin-bottom:50px;">
+                <a (click)="onLogout()" style="color: rgb(0, 0, 0);">
+                  <i class="ti-power-off"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+      <button (click)="onLogout()" type="button" class="btn btn-inverse-dark btn-icon">
+        <i class="ti-power-off"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- responsable technique -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" *ngIf="!rtIsAuthenticated">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+      style="background-color:#ede6e3b1;">
+      <a class="navbar-brand brand-logo mr-5" style="width: 1000px;"><img src="assets/images/smartbi3-removebg-preview.png"  class="mr-2"
+          alt="logo" /></a>
+          <img src="assets/img/avatar-messenger.png" width="63" height="63" (click)="messenger()" alt="profile" />
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+      style="background-color: #ede6e3b1;">
+      <ul class="navbar-nav navbar-nav-right">
+        <li style="margin-right:653px;"  class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <img [src]="avatar" alt="profile" />
+            <div class="cursor" onclick="document.querySelector('.dots').classList.toggle('active');"></div>
+          </a>
+        </li>
+        <div class="dots" style="margin-right:320px;">
+          <div class="shadow cut"></div>
+          <div class="container cut">
+            <div class="drop cut2" style="background-color: rgba(255, 0, 0, 0);"></div>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <a (click)="profile()" style="color: rgb(3, 187, 0);">
+                  <i class="ti-user"></i>
+                  profile
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/feed/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-linkedin"></i>
+                  linkedin
+                </a>
+              </li>
+              <li>
+                <a href="https://www.google.com/" style="color: rgb(255, 154, 1);">
+                  <i class="ti-google"></i>
+                  google
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-facebook"></i>
+                  facebook
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" style="color: rgb(255, 1, 1);">
+                  <i class="ti-youtube"></i>
+                  youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://outlook.office.com/mail/" style="color: rgb(0, 17, 255);">
+                  <i class="ti-email"></i>
+                  outlook
+                </a>
+              </li>
+              <li style="margin-bottom:50px;">
+                <a (click)="onLogout()" style="color: rgb(0, 0, 0);">
+                  <i class="ti-power-off"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+      <button (click)="onLogout()" type="button" class="btn btn-inverse-dark btn-icon">
+        <i class="ti-power-off"></i>
+      </button>
+    </div>
+  </nav>
+  <!-- employeur logistique -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" *ngIf="!elIsAuthenticated">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+      style="background-color:#ede6e3b1;">
+      <a class="navbar-brand brand-logo mr-5" style="width: 1000px;"><img src="assets/images/smartbi3-removebg-preview.png"  class="mr-2"
+          alt="logo" /></a>
+          <img src="assets/img/avatar-messenger.png" width="63" height="63" (click)="messenger()" alt="profile" />
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+      style="background-color: #ede6e3b1;">
+      <ul class="navbar-nav navbar-nav-right">
+        <li style="margin-right:653px;"  class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <img [src]="avatar" alt="profile" />
+            <div class="cursor" onclick="document.querySelector('.dots').classList.toggle('active');"></div>
+          </a>
+        </li>
+        <div class="dots" style="margin-right:320px;">
+          <div class="shadow cut"></div>
+          <div class="container cut">
+            <div class="drop cut2" style="background-color: rgba(255, 0, 0, 0);"></div>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <a (click)="profile()" style="color: rgb(3, 187, 0);">
+                  <i class="ti-user"></i>
+                  profile
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/feed/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-linkedin"></i>
+                  linkedin
+                </a>
+              </li>
+              <li>
+                <a href="https://www.google.com/" style="color: rgb(255, 154, 1);">
+                  <i class="ti-google"></i>
+                  google
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-facebook"></i>
+                  facebook
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" style="color: rgb(255, 1, 1);">
+                  <i class="ti-youtube"></i>
+                  youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://outlook.office.com/mail/" style="color: rgb(0, 17, 255);">
+                  <i class="ti-email"></i>
+                  outlook
+                </a>
+              </li>
+              <li style="margin-bottom:50px;">
+                <a (click)="onLogout()" style="color: rgb(0, 0, 0);">
+                  <i class="ti-power-off"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+      <button (click)="onLogout()" type="button" class="btn btn-inverse-dark btn-icon">
+        <i class="ti-power-off"></i>
+      </button>
+    </div>
+  </nav>
+  <!-- employeur commercial -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" *ngIf="!ecIsAuthenticated">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+      style="background-color:#ede6e3b1;">
+      <a class="navbar-brand brand-logo mr-5" style="width: 1000px;"><img src="assets/images/smartbi3-removebg-preview.png"  class="mr-2"
+          alt="logo" /></a>
+          <img src="assets/img/avatar-messenger.png" width="63" height="63" (click)="messenger()" alt="profile" />
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+      style="background-color: #ede6e3b1;">
+      <ul class="navbar-nav navbar-nav-right">
+        <li style="margin-right:653px;"  class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <img [src]="avatar" alt="profile" />
+            <div class="cursor" onclick="document.querySelector('.dots').classList.toggle('active');"></div>
+          </a>
+        </li>
+        <div class="dots" style="margin-right:320px;">
+          <div class="shadow cut"></div>
+          <div class="container cut">
+            <div class="drop cut2" style="background-color: rgba(255, 0, 0, 0);"></div>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <a (click)="profile()" style="color: rgb(3, 187, 0);">
+                  <i class="ti-user"></i>
+                  profile
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/feed/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-linkedin"></i>
+                  linkedin
+                </a>
+              </li>
+              <li>
+                <a href="https://www.google.com/" style="color: rgb(255, 154, 1);">
+                  <i class="ti-google"></i>
+                  google
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-facebook"></i>
+                  facebook
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" style="color: rgb(255, 1, 1);">
+                  <i class="ti-youtube"></i>
+                  youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://outlook.office.com/mail/" style="color: rgb(0, 17, 255);">
+                  <i class="ti-email"></i>
+                  outlook
+                </a>
+              </li>
+              <li style="margin-bottom:50px;">
+                <a (click)="onLogout()" style="color: rgb(0, 0, 0);">
+                  <i class="ti-power-off"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+      <button (click)="onLogout()" type="button" class="btn btn-inverse-dark btn-icon">
+        <i class="ti-power-off"></i>
+      </button>
+    </div>
+  </nav>
+  <!-- employeur financier -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" *ngIf="!efIsAuthenticated">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+      style="background-color:#ede6e3b1;">
+      <a class="navbar-brand brand-logo mr-5" style="width: 1000px;"><img src="assets/images/smartbi3-removebg-preview.png"  class="mr-2"
+          alt="logo" /></a>
+          <img src="assets/img/avatar-messenger.png" width="63" height="63" (click)="messenger()" alt="profile" />
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+      style="background-color: #ede6e3b1;">
+      <ul class="navbar-nav navbar-nav-right">
+        <li style="margin-right:653px;"  class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <img [src]="avatar" alt="profile" />
+            <div class="cursor" onclick="document.querySelector('.dots').classList.toggle('active');"></div>
+          </a>
+        </li>
+        <div class="dots" style="margin-right:320px;">
+          <div class="shadow cut"></div>
+          <div class="container cut">
+            <div class="drop cut2" style="background-color: rgba(255, 0, 0, 0);"></div>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <a (click)="profile()" style="color: rgb(3, 187, 0);">
+                  <i class="ti-user"></i>
+                  profile
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/feed/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-linkedin"></i>
+                  linkedin
+                </a>
+              </li>
+              <li>
+                <a href="https://www.google.com/" style="color: rgb(255, 154, 1);">
+                  <i class="ti-google"></i>
+                  google
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-facebook"></i>
+                  facebook
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" style="color: rgb(255, 1, 1);">
+                  <i class="ti-youtube"></i>
+                  youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://outlook.office.com/mail/" style="color: rgb(0, 17, 255);">
+                  <i class="ti-email"></i>
+                  outlook
+                </a>
+              </li>
+              <li style="margin-bottom:50px;">
+                <a (click)="onLogout()" style="color: rgb(0, 0, 0);">
+                  <i class="ti-power-off"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+      <button (click)="onLogout()" type="button" class="btn btn-inverse-dark btn-icon">
+        <i class="ti-power-off"></i>
+      </button>
+    </div>
+  </nav>
+  <!-- employeur technique -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" *ngIf="!etIsAuthenticated">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+      style="background-color:#ede6e3b1;">
+      <a class="navbar-brand brand-logo mr-5" style="width: 1000px;"><img src="assets/images/smartbi3-removebg-preview.png"  class="mr-2"
+          alt="logo" /></a>
+          <img src="assets/img/avatar-messenger.png" width="63" height="63" (click)="messenger()" alt="profile" />
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+      style="background-color: #ede6e3b1;">
+      <ul class="navbar-nav navbar-nav-right">
+        <li style="margin-right:653px;"  class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <img [src]="avatar" alt="profile" />
+            <div class="cursor" onclick="document.querySelector('.dots').classList.toggle('active');"></div>
+          </a>
+        </li>
+        <div class="dots" style="margin-right:320px;">
+          <div class="shadow cut"></div>
+          <div class="container cut">
+            <div class="drop cut2" style="background-color: rgba(255, 0, 0, 0);"></div>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <a (click)="profile()" style="color: rgb(3, 187, 0);">
+                  <i class="ti-user"></i>
+                  profile
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/feed/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-linkedin"></i>
+                  linkedin
+                </a>
+              </li>
+              <li>
+                <a href="https://www.google.com/" style="color: rgb(255, 154, 1);">
+                  <i class="ti-google"></i>
+                  google
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-facebook"></i>
+                  facebook
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" style="color: rgb(255, 1, 1);">
+                  <i class="ti-youtube"></i>
+                  youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://outlook.office.com/mail/" style="color: rgb(0, 17, 255);">
+                  <i class="ti-email"></i>
+                  outlook
+                </a>
+              </li>
+              <li style="margin-bottom:50px;">
+                <a (click)="onLogout()" style="color: rgb(0, 0, 0);">
+                  <i class="ti-power-off"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+      <button (click)="onLogout()" type="button" class="btn btn-inverse-dark btn-icon">
+        <i class="ti-power-off"></i>
+      </button>
+    </div>
+  </nav>
+  <!-- fournisseur -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" *ngIf="!fournisseurIsAuthenticated">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+      style="background-color:#ede6e3b1;">
+      <a class="navbar-brand brand-logo mr-5" style="width: 1000px;"><img src="assets/images/smartbi3-removebg-preview.png"  class="mr-2"
+          alt="logo" /></a>
+          <img src="assets/img/avatar-messenger.png" width="63" height="63" (click)="messenger()" alt="profile" />
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+      style="background-color: #ede6e3b1;">
+      <ul class="navbar-nav navbar-nav-right">
+        <li style="margin-right:653px;"  class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <img [src]="avatar" alt="profile" />
+            <div class="cursor" onclick="document.querySelector('.dots').classList.toggle('active');"></div>
+          </a>
+        </li>
+        <div class="dots" style="margin-right:320px;">
+          <div class="shadow cut"></div>
+          <div class="container cut">
+            <div class="drop cut2" style="background-color: rgba(255, 0, 0, 0);"></div>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <a (click)="profile()" style="color: rgb(3, 187, 0);">
+                  <i class="ti-user"></i>
+                  profile
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/feed/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-linkedin"></i>
+                  linkedin
+                </a>
+              </li>
+              <li>
+                <a href="https://www.google.com/" style="color: rgb(255, 154, 1);">
+                  <i class="ti-google"></i>
+                  google
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/" style="color: rgb(1, 35, 255);">
+                  <i class="ti-facebook"></i>
+                  facebook
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" style="color: rgb(255, 1, 1);">
+                  <i class="ti-youtube"></i>
+                  youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://outlook.office.com/mail/" style="color: rgb(0, 17, 255);">
+                  <i class="ti-email"></i>
+                  outlook
+                </a>
+              </li>
+              <li style="margin-bottom:50px;">
+                <a (click)="onLogout()" style="color: rgb(0, 0, 0);">
+                  <i class="ti-power-off"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+      <button (click)="onLogout()" type="button" class="btn btn-inverse-dark btn-icon">
+        <i class="ti-power-off"></i>
+      </button>
+    </div>
+  </nav>

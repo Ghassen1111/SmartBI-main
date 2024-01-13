@@ -1,0 +1,50 @@
+.cti {
+    background-color:#2d7d01;
+    padding: 14px 10px;
+    border: 3px solid transparent;
+    border-radius: 0.6em;
+    transition: 0.2s;
+  }
+  
+  .cti:hover {
+    background-color: #2d7d01;
+    border: 3px solid #2d7d01;
+    box-shadow: 0px 0px 27px 5px#2d7d01;
+  }
+  
+  .CTI {
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    font-weight: bold;
+    overflow: hidden;
+    border-right: 4px solid transparent;
+    white-space: nowrap;
+    margin: 0 auto;
+  }
+  
+  .cti:hover .CTI {
+    border-right: 4px solid #2d7d01;
+    animation: letters 1.75s steps(22, end),
+      cursor .4s step-end infinite;
+  }
+  
+  @keyframes letters {
+    from {
+      width: 0;
+    }
+  
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes cursor {
+    from {
+      border-color: #2d7d01
+    }
+  
+    50% {
+      border-color: #2d7d01
+    }
+  }

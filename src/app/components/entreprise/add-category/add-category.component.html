@@ -1,0 +1,43 @@
+<div style="margin-top:70px;">
+    <h1 class="block-effect" style="--td: 1.2s">
+        <div class="block-reveal" style="--bc: #4040bf; --d: .1s">ajouter</div>
+        <div class="block-reveal" style="--bc: #03c93b; --d: .5s">Catégorie</div>
+    </h1>
+</div>
+<div style="margin-left:360px;" class="col-md-5 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+            <form [formGroup]="categoryForm">
+                <div class="d-flex mb-0 mt-2">
+                    <div class="search-box">
+                        <button class="btn-search"><i class="ti-hand-point-right" style="font-size:40px;"></i></button>
+                        <input formControlName="category" name="category" type="text" class="input-search"
+                            placeholder="Add .....">
+                    </div>
+                    <button (click)="AddCategory()"
+                        class="add btn btn-icon text-primary todo-list-add-btn bg-transparent"  type="submit" [disabled]="categoryForm.invalid"><i
+                            class="icon-circle-plus" style="font-size:40px;"></i></button>
+                </div>
+                <span
+                *ngIf="categoryForm.controls['category'].invalid && (categoryForm.controls['category'].touched || categoryForm.controls['category'].dirty)">
+                <span *ngIf="categoryForm.controls['category'].errors.required"
+                    style="color: rgb(0, 98, 255);margin-right:380px;">is required</span>
+            </span>
+            </form>
+
+            <div class="list-wrapper pt-2" style="height:250px;">
+                <ul class="d-flex flex-column-reverse todo-list todo-list-custom">
+                    <li *ngFor="let C of categoryTab">
+                        <div class="form-check form-check-flat">
+                            <label class="form-check-label">
+                                {{C.category}}
+                            </label>
+                        </div>
+                        <i (click)="Delet(C._id)" class="remove ti-close"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

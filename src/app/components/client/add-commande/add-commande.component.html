@@ -1,0 +1,32 @@
+<div style="background-color: rgb(255, 255, 255);margin-top:70px;" class="body">
+  <div class="product_img">
+    <h1 class="block-effect" style="--td: 1.2s;">
+      <div class="block-reveal" style="--bc: #03c93b; --d: .5s">{{product.name}}</div>
+    </h1>
+    <img [src]="product.avatar" alt="">
+  </div>
+  <div class="product_info">
+    <div class="seller_info">
+
+    </div>
+    <div class="product_model" style="color: red;">REF: {{product._id}}
+    </div>
+    <div class="product_price" style="color: #03c93b;">DT {{product.prix}}
+    </div>
+    <div class="product_quantity">Description:<br></div>
+    <div class="product_descr">{{product.description}}</div>
+    <div class="product_price" style="color: rgb(0, 4, 255);">categorie: {{product.category}}<br></div>
+    <form [formGroup]="commandeForm">
+      <div class="product_quantity" style="color: #c05301;">Quantité:<br>
+        <input formControlName="qty" name="qty" type="number">
+      </div>
+      <span
+      *ngIf="commandeForm.controls['qty'].invalid && (commandeForm.controls['qty'].touched || commandeForm.controls['qty'].dirty)">
+      <span *ngIf="commandeForm.controls['qty'].errors.required" style="color:#c05301;">Quantity is required</span>
+    </span>
+    <br>
+    <span style="color:#c05301;" >{{MessageError}}</span>
+      <div (click)="addCommande(product._id,product.employeurId)" class="add_to_cart">Ajouter commande</div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+<div style="margin-top:70px;margin-left:350px;">
+    <form  [formGroup]="tacheForm" class="decor">
+      <div class="form-left-decoration"></div>
+      <div class="form-right-decoration"></div>
+      <div class="circle"></div>
+      <div class="form-inner">
+        <h1>ajouter tache</h1>
+        <div>
+        <h6 style="margin-top:20px;color: #5a7233;">Select assistante</h6>
+        <select formControlName="yourId" placeholder="yourId" name="yourId" aria-label="Default select example">
+          <option *ngFor="let E of employeursTab" value="{{E._id}}">{{E.firstName}} {{E.lastName}} -> {{E.role}}</option>
+        </select>
+        </div>
+        <textarea formControlName="tache" name="tache" style="margin-top:10px;" placeholder="tache..." rows="5"></textarea>
+        <span *ngIf="tacheForm.controls['tache'].invalid && (tacheForm.controls['tache'].touched || tacheForm.controls['tache'].dirty)">
+          <span *ngIf="tacheForm.controls['tache'].errors.required" style="color:#5a7233">tache is required</span>
+        </span>
+        <button (click)="addTache()" type="submit" href="/">ajouter</button>
+      </div>
+    </form>
+</div>
+<div class="col-lg-12 grid-margin stretch-card" style="margin-top: 5px;">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Tableau taches</h4>
+        <div class="row">
+          <div class="col-4">
+          </div>
+          <div class="col-4">
+            <input type="text" placeholder="YYYY/MM/DD"  class="input-group form-control" [(ngModel)]="termDate" style="border-color:rgb(255, 0, 0);width:180px;height:40px;margin-left:100px;">
+          </div>
+          <div class="col-4">
+            
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>
+                  image
+                </th>
+                <th>
+                  Nom
+                </th>
+                <th style="color: blue;">
+                  Tache
+                </th>
+                <th style="color:red;">
+                  Date
+                </th>
+                <th style="color: green;">
+                  Status
+                </th>
+                <th>
+                  Delet
+                </th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let T of pageOfItems">
+              <tr>
+                <td class="py-1">
+                  <img [src]="T.your[0].avatar" alt="image"/>
+                </td>
+                <td>
+                  {{T.your[0].firstName}}
+                </td>
+                <td>
+                  <div style="width: 500px; height: 60px;margin-top:30px;color:blue;">{{T.tache}}</div>
+                </td>
+                <td style="color: red;">
+                  {{T.date}}
+                </td>
+                <td>
+                  <div *ngIf="T.status=='yes'" class="badge badge-success">Terminé</div>
+                  <div *ngIf="T.status=='no'" class="badge badge-danger">En cours</div>
+                </td>
+                <td>
+                  <button (click)="Delet(T._id)" class="btn">
+                    <p class="paragraph"> delete </p>
+                    <span class="icon-wrapper">
+                      <svg class="icon" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 7V18C6 19.1046 6.89543 20 8 20H16C17.1046 20 18 19.1046 18 18V7M6 7H5M6 7H8M18 7H19M18 7H16M10 11V16M14 11V16M8 7V5C8 3.89543 8.89543 3 10 3H14C15.1046 3 16 3.89543 16 5V7M8 7H16" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="card-footer pb-0 pt-10">
+            <jw-pagination [items]="tachesTab| filterDate:termDate" (changePage)="onChangePage($event)"[pageSize]="10"></jw-pagination>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>

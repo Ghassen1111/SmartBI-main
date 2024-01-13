@@ -1,0 +1,104 @@
+<div class="text-center" style="margin-top:80px;">
+    <div style="margin-right:6px;" class="row">
+        <div style="margin-left:50px;" class="col">
+            <app-icon-user-rh></app-icon-user-rh>
+        </div>
+        <div class="col">
+            <app-icon-stock-rl></app-icon-stock-rl>
+        </div>
+        <div class="col">
+            <app-icon-product-rl></app-icon-product-rl>
+        </div>
+    </div>
+    <div style="margin-top:20px;">
+        <div style="margin-right:6px;" class="row">
+            <div style="margin-left:50px;" class="col">
+            <app-icon-category-rl></app-icon-category-rl>
+            </div>
+            <div class="col">
+                <app-icon-ventes-rl></app-icon-ventes-rl> 
+            </div>
+            <div class="col">
+                <app-icon-responsable></app-icon-responsable>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top:20px;">
+        <div style="margin-right:6px;" class="row">
+            <div style="margin-left:50px;" class="col">
+                <app-icon-tva-rf></app-icon-tva-rf>
+            </div>
+            <div class="col">
+                <app-icon-benefices-rf></app-icon-benefices-rf>
+            </div>
+            <div class="col">
+                <app-icon-salaire-rf></app-icon-salaire-rf>
+            </div>
+        </div>
+    </div>
+</div>
+    <div style="background-color:rgb(255, 255, 255);margin-top:15px;" (click)="dashboardRh()" class="row">
+        <h4 style="margin-left:454px;color: blue;"> Service ressources humaines </h4>
+    </div>
+    <div style="margin-top:7px;">
+        <div style="margin-right:6px;" class="row">
+            <div class="col-6">
+                <app-chart-role-employeur-rh></app-chart-role-employeur-rh>
+            </div>
+            <div class="col-6">
+                <app-chart-sexe-employeur-rh></app-chart-sexe-employeur-rh>
+            </div>
+        </div>
+    </div>
+    <div style="background-color:rgb(255, 255, 255);margin-top:5px;" (click)="dashboardRc()" class="row">
+        <h4 style="margin-left:510px;color: rgb(186, 99, 0);"> Service Commercial </h4>
+    </div>
+    <div style="margin-top:3px;">
+        <div style="margin-right:6px;" class="row">
+            <div class="col-6">
+                <app-chart-country-client-rc></app-chart-country-client-rc>
+            </div>
+            <div class="col-6">
+                <app-chart-somme-commande-for-product-rc></app-chart-somme-commande-for-product-rc>
+            </div>
+        </div>
+    </div>
+    <div style="background-color:rgb(255, 255, 255);margin-top:5px;" (click)="dashboardRl()" class="row">
+        <h4 style="margin-left:530px;color: rgb(225, 0, 255);"> Service Logistique </h4>
+    </div>
+    <div style="margin-top:3px;">
+        <div style="margin-right:6px;" class="row">
+            <div class="col-6">
+                <app-chart-qty-product-vente-et-non-vente></app-chart-qty-product-vente-et-non-vente>
+            </div>
+            <div class="col-6">
+                <app-chart-somme-product-for-category-rl></app-chart-somme-product-for-category-rl>
+            </div>
+        </div>
+    </div>
+    <div style="background-color:rgb(255, 255, 255);margin-top:5px;" (click)="dashboardRt()" class="row">
+        <h4 style="margin-left:530px;color: rgb(0, 192, 0);"> Service Techniche </h4>
+    </div>
+    <div style="margin-top:3px;">
+        <div style="margin-right:6px;" class="row">
+            <div class="col-6">
+                <app-chart-qty-product-reclamation-for-category-service-rt></app-chart-qty-product-reclamation-for-category-service-rt>
+            </div>
+            <div class="col-6">
+                <app-chart-qty-product-reclamation-for-product-rt></app-chart-qty-product-reclamation-for-product-rt>
+            </div>
+        </div>
+    </div>
+    <div style="background-color:rgb(255, 255, 255);margin-top:5px;" (click)="dashboardRf()" class="row">
+        <h4 style="margin-left:530px;color: rgb(255, 0, 0);"> Service Financier </h4>
+    </div>
+    <div style="margin-top:3px;">
+        <div style="margin-right:6px;" class="row">
+            <div class="col-6">
+                <app-chart-pourcentage-des-benefices-des-produits-vendus-rf></app-chart-pourcentage-des-benefices-des-produits-vendus-rf>
+            </div>
+            <div class="col-6">
+                <app-chart-pourcentage-des-benefices-des-produits-non-vendus-rf></app-chart-pourcentage-des-benefices-des-produits-non-vendus-rf>
+            </div>
+        </div>
+    </div>

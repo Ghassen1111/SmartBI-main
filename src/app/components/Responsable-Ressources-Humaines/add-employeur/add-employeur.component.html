@@ -1,0 +1,169 @@
+
+    <div class="login-container text-c animated flipInX main-bg" style="margin-top:70px;">
+            <div>
+            <div><img [src]="imagePreview" style="width:200px;margin-bottom:30px;" alt="Avatar"></div>
+            <div><button type="button" (click)='filePicker.click()'
+            class="form-button button-l margin-b">Sélectionner image</button></div>
+            <input style="visibility: hidden;" type="file" class="form-control" #filePicker
+            (change)='onImageSelected($event)' />
+            </div>
+                <h3 class="text-whitesmoke">Ajouter Assistante</h3>
+            <div class="container-content">
+                <form [formGroup]="signupForm" class="margin-t">
+                    <div class="form-group">
+                        <label style="color: azure;" >Prénom</label>
+                        <input formControlName="firstName" name="firstName" class="form-control" type="email" placeholder="firstName">
+                        <span *ngIf="signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].touched || signupForm.controls['firstName'].dirty)">
+                            <span *ngIf="signupForm.controls['firstName'].errors.required" style="color: rgba(255, 235, 59, 0.473);">firstName is required</span>
+                            <span *ngIf="signupForm.controls['firstName'].errors.minlength" style="color: rgba(255, 235, 59, 0.473);">firstName must have at least 3 chars </span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: azure;">Nom de famille</label>
+                        <input formControlName="lastName" name="lastName" class="form-control" type="email" placeholder="lastName">
+                    <span *ngIf="signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].touched || signupForm.controls['lastName'].dirty)">
+                        <span *ngIf="signupForm.controls['lastName'].errors.required" style="color: rgba(255, 235, 59, 0.473);">firstName is required</span>
+                        <span *ngIf="signupForm.controls['lastName'].errors.minlength" style="color:rgba(255, 235, 59, 0.473);">firstName must have at least 3 chars </span>
+                    </span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: azure;">Role</label>
+                        <select formControlName="role" placeholder="role" class="form-control" type="text" name="role"
+                            placeholder="role">
+                            <option value="employeur logistique">Assistante logistique (Stock)</option>
+                            <option value="employeur commercial">Assistante commercial (Store)</option>
+                            <option value="employeur financier">Assistante financier (FN)</option>
+                            <option value="employeur technique">Assistante technique (TN)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: azure;">address</label>
+                        <input formControlName="address" type="text" name="address" class="form-control"
+                            placeholder="address" id="logemail" autocomplete="off">
+                        <span
+                            *ngIf="signupForm.controls['address'].invalid && (signupForm.controls['address'].touched || signupForm.controls['address'].dirty)">
+                            <span *ngIf="signupForm.controls['address'].errors.required"
+                                style="color: rgba(255, 235, 59, 0.473);">address is required</span>
+                            <span *ngIf="signupForm.controls['address'].errors.minlength"
+                                style="color: rgba(255, 235, 59, 0.473);">address must have at least 3 chars</span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: azure;">telephone</label>
+                        <input formControlName="tel" type="number" name="tel" class="form-control" placeholder="telephone"
+                            id="logpass" autocomplete="off">
+                        <span
+                            *ngIf="signupForm.controls['tel'].invalid && (signupForm.controls['tel'].touched || signupForm.controls['tel'].dirty)">
+                            <span *ngIf="signupForm.controls['tel'].errors.required"
+                                style="color: rgba(255, 235, 59, 0.473);">tel is required</span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: azure;">sexe</label>
+                        <select formControlName="sexe" placeholder="sexe" class="form-control" type="text"
+                            name="sexe" placeholder="sexe">
+                            <option value="homme">homme</option>
+                            <option value="femme">femme</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: azure;">Email</label>
+                        <input formControlName="email" type="email" name="email" class="form-control"
+                            placeholder="exemple@entreprise.com" id="logpass" autocomplete="off">
+                        <span
+                            *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)">
+                            <span *ngIf="signupForm.controls['email'].errors.required"
+                                style="color: rgba(255, 235, 59, 0.473);">email is required</span>
+                            <span *ngIf="signupForm.controls['email'].errors.email"
+                                style="color: rgba(255, 235, 59, 0.473);">invalid</span>
+                            <span *ngIf="signupForm.controls['email'].errors.pattern"
+                                style="color: rgba(255, 235, 59, 0.473);">invalid pattern</span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: azure;">Password</label>
+                        <input formControlName="pwd" type="password" name="pwd" class="form-control" placeholder="Password"
+                            id="logpass" autocomplete="off">
+                        <span
+                            *ngIf="signupForm.controls['pwd'].invalid && (signupForm.controls['pwd'].touched || signupForm.controls['pwd'].dirty)">
+                            <span *ngIf="signupForm.controls['pwd'].errors.required"
+                                style="color: rgba(255, 235, 59, 0.473);">password is required</span>
+                            <span *ngIf="signupForm.controls['pwd'].errors.minlength"
+                                style="color: rgba(255, 235, 59, 0.473);">password least 8 chars </span>
+                            <span *ngIf="signupForm.controls['pwd'].errors.maxlength"
+                                style="color: rgba(255, 235, 59, 0.473);">password least 12 chars</span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: azure;">types contrats</label>
+                        <select formControlName="contrats" placeholder="contrats" class="form-control" type="text"
+                            name="contrats" placeholder="contrats">
+                            <option value="CDI">CDI</option>
+                            <option value="CDD">CDD</option>
+                            <option value="CIVP">CIVP</option>
+                            <option value="KARAMA">KARAMA</option>
+                            <option value="CSC">CSC</option>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: azure;">salaire</label>
+                        <input formControlName="salaire" type="number" name="salaire" class="form-control" placeholder="DT"
+                            id="logpass" autocomplete="off">
+                        <span
+                            *ngIf="signupForm.controls['salaire'].invalid && (signupForm.controls['tel'].touched || signupForm.controls['tel'].dirty)">
+                            <span *ngIf="signupForm.controls['tel'].errors.required"
+                                style="color: rgba(255, 235, 59, 0.473);">tel is required</span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: azure;">Pays</label>
+                        <select formControlName="country" placeholder="country" class="form-control" type="text"
+                            name="country" placeholder="Country">
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="American">American</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Canada">Canada</option>
+                            <option value="China">China</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Congo">Congo</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="Gabon">Gabon</option>
+                            <option value="Gambia">Gambia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="India">India</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Libya">Libya</option>
+                            <option value="MC">Monaco</option>
+                            <option value="MN">Mongolia</option>
+                            <option value="ME">Montenegro</option>
+                            <option value="MS">Montserrat</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Serbia">Serbia</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Togo">Togo</option>
+                            <option value="Tunisie">Tunisie</option>
+                            <option value="Turkey">Turkey</option>
+                        </select>
+                    </div>
+                    <button (click)="signupEmployeur()" type="submit" class="form-button button-l margin-b">ajouter</button>
+                </form>
+            </div>
+        </div>

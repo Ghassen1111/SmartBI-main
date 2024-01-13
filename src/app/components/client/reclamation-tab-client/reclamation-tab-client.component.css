@@ -1,0 +1,11 @@
+table {
+    width: 100%;
+  }
+
+  td {
+    width: 20%;
+    padding: 10px;
+    font-size: 14px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }

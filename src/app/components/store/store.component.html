@@ -1,0 +1,26 @@
+<div style="margin-top:80px;">
+    <div class="row">
+        <div class="col-2">
+
+        </div>
+        <div class="col-6">
+            <input type="text" class="input-group form-control" [(ngModel)]="termName" name="Search"
+                placeholder="Search by Name" style="border-color:rgb(34, 0, 203);width:500px;margin-left:160px;">
+        </div>
+        <div class="col-4">
+            <select class="form-select" [(ngModel)]="termCategory" style="border-color:rgb(203, 0, 0);width:200px;margin-left:120px;height:65px;"
+                aria-label="Default select example">
+                <option *ngFor="let C of categoryTab" [value]="C.category">{{C.category}}</option>
+            </select>
+        </div>
+    </div>
+    <div style="margin-left:20px;" class="row">
+        <div style="margin-top:35px;" class="col-md-4" *ngFor="let p of pageOfItems">
+            <app-card [x]='p'></app-card>
+        </div>
+    </div>
+    <div style="margin-left:495px; margin-top:30px;">
+        <jw-pagination [items]="productsTab| filterName:termName | filterCategory:termCategory" (changePage)="onChangePage($event)"
+            [pageSize]="12"></jw-pagination>
+    </div>
+</div>

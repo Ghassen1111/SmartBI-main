@@ -1,0 +1,23 @@
+<section class="hero-section hero" data-background="" style="background-image: url(assets/images/hero-area/banner-bg.png);">
+<div class="login-box" style="margin-top:50px;">
+    <h2>Login</h2>
+    <form #loginForm="ngForm">
+      <div class="user-box">
+        <input name="email" [(ngModel)]="login.email" type="email" required="">
+        <label>Email</label>
+      </div>
+      <div class="user-box">
+        <input name="pwd" [(ngModel)]="login.pwd" type="password" required="">
+        <label>Password</label>
+      </div>
+      <h6 style="margin-left:29px;color: red;">{{errorMessage}}</h6>
+      <a style="margin-left:32%;" (click)="validateLogin()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        submit
+      </a>
+    </form>
+  </div>
+</section>

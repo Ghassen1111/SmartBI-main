@@ -1,0 +1,19 @@
+/* ktiba bel alwen ta3 el post */
+.wrapper.two {
+    font-size: 6rem;
+    font-family: "Play", sans-serif;
+  }
+  .neon h6 {
+    animation: neon 80s ease infinite;
+  }
+  @keyframes neon {
+    0%,
+    100% {
+        text-shadow: 0 0 7px #000000a8, 0 0 10px #020202a8, 0 0 10px #161616a8, 0 0 10px #0e0d0da8, 0 0 2px #fed128, 2px 2px 2px #806914;
+        color: #f5efcb;
+    }
+    50% {
+        text-shadow: 0 0 2px #0707ebc2, 0 0 5px #350ec0c0, 0 0 5px #170b80c4, 0 0 5px #200b80c7, 0 0 2px #0b0d80c4, 4px 4px 2px #40340a;
+        color: #807ef5;
+    }
+  }

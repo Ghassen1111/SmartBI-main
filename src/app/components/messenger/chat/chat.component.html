@@ -1,0 +1,32 @@
+<div class="px-4 py-5 chat-box bg-white">
+    <!-- Reciever Message-->
+    <div  *ngFor="let M of T">
+    <div class="media w-50 ml-auto mb-3" *ngIf="M.myId==userId">
+        <div class="media-body">
+            <div class="bg-primary rounded py-2 px-3 mb-2">
+                <p class="text-small mb-0 text-white">{{M.message}}</p>
+            </div>
+            <p class="small text-muted">{{M.date}}</p>
+        </div>
+    </div>
+    <div class="media w-50 mb-3">
+        <div class="media-body ml-3" *ngIf="M.myId!=userId">
+            <div class="bg-light rounded py-2 px-3 mb-2">
+                <p class="text-small mb-0 text-muted">{{M.message}}</p>
+            </div>
+            <p class="small text-muted">{{M.date}}</p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- Typing area -->
+<form [formGroup]="messengerForm" class="bg-light">
+    <div class="input-group">
+        <input formControlName="message" name="message" type="text" placeholder="message" aria-describedby="button-addon2"
+            class="form-control rounded-0 border-0 py-4 bg-light">
+        <button (click)="messenger()" style="margin-top: 18px;margin-right: 7px; " type="button" class="btn btn-inverse-info btn-icon">
+            <i class="ti-email"></i>
+        </button>
+    </div>
+</form>

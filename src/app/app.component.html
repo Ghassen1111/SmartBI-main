@@ -1,0 +1,18 @@
+<div *ngIf="!UIsAuthenticated">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</div>
+<div class="text-center" *ngIf="UIsAuthenticated">
+  <div class="row">
+    <app-header-dashboard></app-header-dashboard>
+  </div>
+   <div class="row">
+     <div class="col-2">
+      <app-sidebar-dashboard></app-sidebar-dashboard>
+     </div>
+     <div class="col-10 color-change-5x" style="height: 2720px;">
+      <router-outlet></router-outlet>
+    </div>
+   </div>
+</div>

@@ -1,0 +1,99 @@
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto" style="margin-top:20px;">
+    <div class="card card0 border-0">
+        <div  class="row d-flex">
+            <div class="col-lg-6">
+                <div class="card1 pb-5">
+                    <div class="row">
+                        <img [src]="entreprise.avatar" class="logo">
+                    </div>
+                    <div class="row px-2 justify-content-center mt-4 mb-5 border-line">
+                        <img src="assets/img/avatar-reclamation.png" class="image">
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:80px;" class="col-lg-6">
+                <form [formGroup]="reclamationForm">
+                    <div class="card2 card border-0 px-4 py-5">
+                        <div class="row px-3">
+                            <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Facture</h6>
+                            </label>
+                            <select formControlName="factureId" placeholder="factureId" class="mb-4" type="text"
+                                name="factureId" placeholder="factureId">
+                                <option *ngFor="let F of facturesTab" [value]="F._id">{{F.product[0].name}} -> {{F._id}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="row px-3">
+                            <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Probleme</h6>
+                            </label>
+                            <select formControlName="probleme" placeholder="probleme" class="mb-4" type="text"
+                                name="probleme" placeholder="probleme">
+                                <option value="commercial">commercial</option>
+                                <option value="financier">financier</option>
+                                <option value="logistique">logistique</option>
+                                <option value="technique">technique</option>
+                            </select>
+                        </div>
+                        <div class="row px-3">
+                            <label class="mb-1">
+                                <h6 class="mb-0 text-sm">quantité</h6>
+                            </label>
+                            <input formControlName="qty" type="number" name="qty">
+                            <span
+                                *ngIf="reclamationForm.controls['qty'].invalid && (reclamationForm.controls['qty'].touched || reclamationForm.controls['qty'].dirty)">
+                                <span *ngIf="reclamationForm.controls['qty'].errors.required"
+                                    style="color: rgb(58, 165, 253);">quantité is required</span>
+                            </span>
+                        </div>
+                        <div class="row px-3">
+                            <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Text</h6>
+                            </label>
+                            <textarea formControlName="text" type="text" name="text"></textarea>
+                            <span
+                                *ngIf="reclamationForm.controls['text'].invalid && (reclamationForm.controls['text'].touched || reclamationForm.controls['text'].dirty)">
+                                <span *ngIf="reclamationForm.controls['text'].errors.required"
+                                    style="color: rgb(58, 165, 253);">text is required</span>
+                            </span>
+                        </div>
+                        <div class="row px-3 mb-4">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input id="chk1" type="checkbox" name="chk" class="custom-control-input">
+                            </div>
+                        </div>
+                        <span style="color:rgb(58, 165, 253);" >{{MessageErrorQty1}}</span>
+                        <span style="color:rgb(58, 165, 253);" >{{MessageErrorQty2}}</span>
+                        <div class="row mb-3 px-3">
+                            <div style="margin-left:25px;" (click)="addReclamation()" class="button">
+                                <div class="box">R</div>
+                                <div class="box">E</div>
+                                <div class="box">C</div>
+                                <div class="box">L</div>
+                                <div class="box">A</div>
+                                <div class="box">M</div>
+                                <div class="box">A</div>
+                                <div class="box">T</div>
+                                <div class="box">I</div>
+                                <div class="box">O</div>
+                                <div class="box">N</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-blue py-4">
+            <div class="row px-3">
+                <small class="ml-4 ml-sm-5 mb-2"></small>
+                <div class="social-contact ml-4 ml-sm-auto">
+                    <span class="fa fa-facebook mr-4 text-sm"></span>
+                    <span class="fa fa-google-plus mr-4 text-sm"></span>
+                    <span class="fa fa-linkedin mr-4 text-sm"></span>
+                    <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

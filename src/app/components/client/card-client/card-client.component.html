@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+        data-mdb-ripple-color="light">
+        <img [src]="x.avatar"
+            class="w-100" />
+        <a href="#!">
+            <div class="hover-overlay">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </div>
+        </a>
+    </div>
+    <div class="card-body">
+        <a href="" class="text-reset">
+            <h5 class="card-title mb-3" style="color: blue;">{{x.name}}</h5>
+        </a>
+        <a class="text-reset">
+            <p>{{x.category}}</p>
+        </a>
+        <h3 class="mb-3" style="color:red;">{{x.prix}}dt</h3>
+        <button (click)="addCommande(x._id)">
+            <span>Ajouter Commande</span>
+            <svg viewBox="-5 -5 110 110" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,0 C0,0 100,0 100,0 C100,0 100,100 100,100 C100,100 0,100 0,100 C0,100 0,0 0,0"/>
+            </svg>
+          </button>          
+    </div>
+</div>

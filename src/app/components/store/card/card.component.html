@@ -1,0 +1,15 @@
+<article class="card">
+    <img
+      class="card__background"
+      [src]="x.avatar"
+      alt="Photo of Cartagena's cathedral at the background and some colonial style houses"
+      width="1920"
+      height="2193"
+    />
+    <div class="card__content | flow">
+      <div class="card__content--container | flow">
+        <h2 class="card__title">{{x.name}}</h2>
+      </div>
+      <button (click)="displayProduct(x._id)" class="btn btn-outline-warning">Afficher</button>
+    </div>
+  </article>

@@ -1,0 +1,120 @@
+<div style="margin-left:25%;margin-top:70px;" class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+           <h1>Modifier Client</h1>
+            <form [formGroup]="signupForm" class="forms-sample">
+                <div class="form-group">
+                    <label for="exampleInputUsername1">Prénom</label>
+                    <input formControlName="firstName" [(ngModel)]="user.firstName"  name="firstName" class="form-control" type="email" placeholder="firstName">
+                    <span *ngIf="signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].touched || signupForm.controls['firstName'].dirty)">
+                        <span *ngIf="signupForm.controls['firstName'].errors.required" style="color: rgb(255, 0, 0);">firstName is required</span>
+                        <span *ngIf="signupForm.controls['firstName'].errors.minlength" style="color: rgb(255, 0, 0);">firstName must have at least 3 chars </span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputUsername1">Nom</label>
+                    <input formControlName="lastName" [(ngModel)]="user.lastName" name="lastName" class="form-control" type="email" placeholder="lastName">
+                <span *ngIf="signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].touched || signupForm.controls['lastName'].dirty)">
+                    <span *ngIf="signupForm.controls['lastName'].errors.required" style="color: rgb(255, 0, 0);">firstName is required</span>
+                    <span *ngIf="signupForm.controls['lastName'].errors.minlength" style="color: rgb(255, 0, 0);">firstName must have at least 3 chars </span>
+                </span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">address</label>
+                    <input formControlName="address" [(ngModel)]="user.address" type="text" name="address" class="form-control"
+                        placeholder="address" id="logemail" autocomplete="off">
+                    <span
+                        *ngIf="signupForm.controls['address'].invalid && (signupForm.controls['address'].touched || signupForm.controls['address'].dirty)">
+                        <span *ngIf="signupForm.controls['address'].errors.required"
+                            style="color: rgba(255, 0, 0, 0.823);">address is required</span>
+                        <span *ngIf="signupForm.controls['address'].errors.minlength"
+                            style="color: rgba(255, 0, 0, 0.823);">address must have at least 3 chars</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">telephone</label>
+                    <input formControlName="tel" [(ngModel)]="user.tel" type="number" name="tel" class="form-control" placeholder="telephone"
+                        id="logpass" autocomplete="off">
+                    <span
+                        *ngIf="signupForm.controls['tel'].invalid && (signupForm.controls['tel'].touched || signupForm.controls['tel'].dirty)">
+                        <span *ngIf="signupForm.controls['tel'].errors.required"
+                            style="color: rgba(255, 0, 0, 0.823);">tel is required</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label  for="exampleInputPassword1">sexe</label>
+                    <select formControlName="sexe" [(ngModel)]="user.sexe" placeholder="sexe" class="form-control" type="text"
+                        name="sexe" placeholder="sexe">
+                        <option value="homme">homme</option>
+                        <option value="femme">femme</option>
+                        
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Email</label>
+                    <input formControlName="email" [(ngModel)]="user.email" type="email" name="email" class="form-control"
+                        placeholder="exemple@entreprise.com" id="logpass" autocomplete="off">
+                    <span
+                        *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)">
+                        <span *ngIf="signupForm.controls['email'].errors.required"
+                            style="color: rgba(255, 0, 0, 0.823);">email is required</span>
+                        <span *ngIf="signupForm.controls['email'].errors.email"
+                            style="color: rgba(255, 0, 0, 0.823);">invalid</span>
+                        <span *ngIf="signupForm.controls['email'].errors.pattern"
+                            style="color: rgba(255, 0, 0, 0.823);">invalid pattern</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Pays</label>
+                    <select formControlName="country"  [(ngModel)]="user.country" placeholder="country" class="form-control" type="text"
+                        name="country" placeholder="Country">
+                        <option value="Albania">Albania</option>
+                        <option value="Algeria">Algeria</option>
+                        <option value="American">American</option>
+                        <option value="Angola">Angola</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Canada">Canada</option>
+                        <option value="China">China</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Congo">Congo</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Egypt">Egypt</option>
+                        <option value="Finland">Finland</option>
+                        <option value="France">France</option>
+                        <option value="Gabon">Gabon</option>
+                        <option value="Gambia">Gambia</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="India">India</option>
+                        <option value="Iraq">Iraq</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Jordan">Jordan</option>
+                        <option value="Libya">Libya</option>
+                        <option value="MC">Monaco</option>
+                        <option value="MN">Mongolia</option>
+                        <option value="ME">Montenegro</option>
+                        <option value="MS">Montserrat</option>
+                        <option value="Morocco">Morocco</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Saudi Arabia">Saudi Arabia</option>
+                        <option value="Senegal">Senegal</option>
+                        <option value="Serbia">Serbia</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Togo">Togo</option>
+                        <option value="Tunisie">Tunisie</option>
+                        <option value="Turkey">Turkey</option>
+                    </select>
+                </div>
+                <div>
+                    <button  (click)="editUser()" type="submit" class="btn btn-outline-info btn-fw">Modifier</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

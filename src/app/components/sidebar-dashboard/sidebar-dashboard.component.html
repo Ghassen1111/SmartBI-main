@@ -1,0 +1,462 @@
+<!-- admin -->
+<nav class="sidebar sidebar-offcanvas fixed-top d-flex flex-row" id="sidebar" style="margin-top:60px ;width:210px;" *ngIf="!adminIsAuthenticated">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="dashboardAdmin">
+          <i class="ti-bar-chart"></i>
+          <span style="margin-left:9%;" class="menu-title">Tableau de bord</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="entrepriseTab">
+          <i class="ti-layout"></i>
+          <span style="margin-left:9% ;" class="menu-title">Tableau entreprise</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="usersTab">
+          <i class="ti-user"></i>
+          <span style="margin-left:9% ;" class="menu-title">Tableau utilisateur</span>
+        </a>
+      </li>
+      <div style="margin-top:338px;margin-left:4px;" class="wrapper two">
+        <div class="neon">
+            <h6>admin</h6>
+        </div>
+      </div>
+    </ul>
+  </nav>
+<!-- entreprise -->
+<nav class="sidebar sidebar-offcanvas fixed-top d-flex flex-row" id="sidebar" style="margin-top:60px ;width:240px;" *ngIf="!entrepriseIsAuthenticated">
+    <ul class="nav">
+      <li style="padding:10px;" class="nav-item">
+        <a class="nav-link" routerLink="dashboardEntreprise">
+          <i class="ti-bar-chart"></i>
+          <span style="margin-left:10%;" class="menu-title">Tableau de bord</span>
+        </a>
+      </li>
+      <li style="padding:10px;" class="nav-item">
+        <a class="nav-link" routerLink="addResponsable">
+          <i class="ti-plus"></i>
+          <span style="margin-left:10%;" class="menu-title">Ajouter Responsable</span>
+        </a>
+      </li>
+      <li style="padding:10px;" class="nav-item">
+        <a class="nav-link" routerLink="addCategory">
+          <i class="ti-pencil-alt"></i>
+          <span style="margin-left:10% ;" class="menu-title">Ajouter Catégorie</span>
+        </a>
+      </li>
+      <li style="padding:10px;"  class="nav-item">
+        <a class="nav-link" (click)="responsablesTab()">
+          <i class="ti-briefcase"></i>
+          <span style="margin-left:10% ;" class="menu-title">Tableau Responsables</span>
+        </a>
+      </li>
+      <li style="padding:10px;"  class="nav-item">
+        <a class="nav-link" (click)="employeursTab()">
+          <i class="ti-layout-list-thumb"></i>
+          <span style="margin-left:10% ;" class="menu-title">Tableau Assistantes</span>
+        </a>
+      </li>
+      <li style="padding:10px;" class="nav-item">
+        <a class="nav-link" (click)="fournisseursTab()">
+          <i class="ti-id-badge"></i>
+          <span style="margin-left:10% ;" class="menu-title">Tableau Clients</span>
+        </a>
+      </li>
+      <li style="padding:10px;" class="nav-item">
+        <a class="nav-link" (click)="productsTab()">
+          <i class="ti-package"></i>
+          <span style="margin-left:10% ;" class="menu-title">Tableau Produits</span>
+        </a>
+      </li>
+      <li style="padding:10px;" class="nav-item">
+        <a class="nav-link" (click)="facturesTab()">
+          <i class="ti-printer"></i>
+          <span style="margin-left:10%;" class="menu-title">Tableau Factures</span>
+        </a>
+      </li>
+      <li style="padding:10px;" class="nav-item">
+        <a class="nav-link" (click)="addTacheResponsable()">
+          <i class="ti-export"></i>
+          <span style="margin-left:10%;" class="menu-title">Tâche Responsable</span>
+        </a>
+      </li>
+      <div style="margin-top:5px;margin-left:8px;" class="wrapper two">
+        <div class="neon">
+            <h6>directeure</h6>
+        </div>
+      </div>
+    </ul>
+</nav>
+<!--responsable ressources humaines -->
+<nav class="sidebar sidebar-offcanvas fixed-top d-flex flex-row" id="sidebar" style="margin-top:60px ;width:240px;" *ngIf="!rrhIsAuthenticated">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="dashboardRh">
+        <i class="ti-bar-chart"></i>
+        <span style="margin-left:10%;" class="menu-title">Tableau de bord</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="addEmployeur">
+        <i class="ti-plus"></i>
+        <span style="margin-left:10% ;" class="menu-title">Ajouter Assistante</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="employeurTab()">
+        <i class="ti-layout-list-thumb"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Assistantes</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="tachesTabRrh()">
+        <i class="ti-import"></i>
+        <span style="margin-left:10%;" class="menu-title">Tâche Directeure</span>
+      </a>
+    </li>
+    <div style="margin-top:210px;margin-left:8px;" class="wrapper two">
+      <div class="neon">
+          <h6>responsable ressources humaines</h6>
+      </div>
+    </div>
+  </ul>
+</nav>
+<!-- responsable logistique -->
+<nav class="sidebar sidebar-offcanvas fixed-top d-flex flex-row" id="sidebar" style="margin-top:60px ;width:240px;" *ngIf="!rlIsAuthenticated">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="dashboardRl">
+        <i class="ti-bar-chart"></i>
+        <span style="margin-left:10%;" class="menu-title">Tableau de bord</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="employeurTabRl()">
+        <i class="ti-layout-list-thumb"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Assistantes</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="productTabRl()">
+        <i class="ti-package"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau produits</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="tachesTabRl()">
+        <i class="ti-import"></i>
+        <span style="margin-left:10%;" class="menu-title">Tâche Directeure</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="addTacheEmployeurRl()">
+        <i class="ti-export"></i>
+        <span style="margin-left:10%;" class="menu-title">Tâche Assistante</span>
+      </a>
+    </li>
+    <div style="margin-top:170px;margin-left:8px;" class="wrapper two">
+      <div class="neon">
+          <h6>responsable logistique</h6>
+      </div>
+    </div>
+  </ul>
+</nav>
+<!-- responsable commercial -->
+<nav class="sidebar sidebar-offcanvas fixed-top d-flex flex-row" id="sidebar" style="margin-top:60px ;width:240px;" *ngIf="!rcIsAuthenticated">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="dashboardRc">
+        <i class="ti-bar-chart"></i>
+        <span style="margin-left:10%;" class="menu-title">Tableau de bord</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="employeurTabRc()">
+        <i class="ti-layout-list-thumb"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Assistantes</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="fournisseursTabRc()">
+        <i class="ti-id-badge"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Clients</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="storeRc()">
+        <i class="ti-shopping-cart-full"></i>
+        <span style="margin-left:10% ;" class="menu-title">Store</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="commandesTabRc()">
+        <i class="ti-layout-grid4"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Commandes</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="tachesTabRc()">
+        <i class="ti-import"></i>
+        <span style="margin-left:10%;" class="menu-title">Tâche Directeure</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="addTacheEmployeurRc()">
+        <i class="ti-export"></i>
+        <span style="margin-left:10%;" class="menu-title">Tâche Assistante</span>
+      </a>
+    </li>
+    <div style="margin-top:5px;margin-left:8px;" class="wrapper two">
+      <div class="neon">
+          <h6>responsable commercial</h6>
+      </div>
+    </div>
+  </ul>
+</nav>
+<!-- responsable financier -->
+<nav class="sidebar sidebar-offcanvas fixed-top d-flex flex-row" id="sidebar" style="margin-top:60px ;width:240px;" *ngIf="!rfIsAuthenticated">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="dashboardRf">
+        <i class="ti-bar-chart"></i>
+        <span style="margin-left:10%;" class="menu-title">Tableau de bord</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="employeurTabRf()">
+        <i class="ti-layout-list-thumb"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Assistantes</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="facturesTabRf()">
+        <i class="ti-printer"></i>
+        <span style="margin-left:10%;" class="menu-title">Tableau Factures</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="reclamationTabRf()">
+        <i class="ti-layout-menu-v"></i>
+        <span style="margin-left:10%;" class="menu-title">Tableau Reclamations</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="tachesTabRf()">
+        <i class="ti-import"></i>
+        <span style="margin-left:10%;" class="menu-title">Tâche Directeure</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="addTacheEmployeurRf()">
+        <i class="ti-export"></i>
+        <span style="margin-left:10%;" class="menu-title">Tâche Assistante</span>
+      </a>
+    </li>
+    <div style="margin-top:75px;margin-left:4px;" class="wrapper two">
+      <div class="neon">
+          <h6>responsable financier</h6>
+      </div>
+    </div>
+  </ul>
+</nav>
+<!-- responsable technique -->
+<nav class="sidebar sidebar-offcanvas fixed-top d-flex flex-row" id="sidebar" style="margin-top:60px ;width:240px;" *ngIf="!rtIsAuthenticated">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="dashboardRt">
+        <i class="ti-bar-chart"></i>
+        <span style="margin-left:10%;" class="menu-title">Tableau de bord</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="employeurTabRt()">
+        <i class="ti-layout-list-thumb"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Assistantes</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="reclamationTabRt()">
+        <i class="ti-layout-menu-v"></i>
+        <span style="margin-left:10%;" class="menu-title">Tableau Reclamations</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="tachesTabRt()">
+        <i class="ti-import"></i>
+        <span style="margin-left:10%;" class="menu-title">Tâche Directeure</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="addTacheEmployeurRt()">
+        <i class="ti-export"></i>
+        <span style="margin-left:10%;" class="menu-title">Tâche Assistante</span>
+      </a>
+    </li>
+    <div style="margin-top:170px;margin-left:4px;" class="wrapper two">
+      <div class="neon">
+          <h6>responsable technique</h6>
+      </div>
+    </div>
+  </ul>
+</nav>
+<!-- employeur logistique -->
+<nav class="sidebar sidebar-offcanvas fixed-top d-flex flex-row" id="sidebar" style="margin-top:60px ;width:240px;" *ngIf="!elIsAuthenticated">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="addProduct" >
+        <i class="ti-marker"></i>
+        <span style="margin-left:10% ;" class="menu-title">Ajouter produits</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="productTabEl()">
+        <i class="ti-package"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau produits</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="tachesTabEl()">
+        <i class="ti-import"></i>
+        <span style="margin-left:10%;" class="menu-title">Tâche Responsable</span>
+      </a>
+    </li>
+    <div style="margin-top:338px;margin-left:4px;" class="wrapper two">
+      <div class="neon">
+          <h6>assistante logistique</h6>
+      </div>
+    </div>
+  </ul>
+</nav>
+<!-- employeur commercial -->
+<nav class="sidebar sidebar-offcanvas fixed-top d-flex flex-row" id="sidebar" style="margin-top:60px ;width:240px;" *ngIf="!ecIsAuthenticated">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="addFournisseur">
+        <i class="ti-plus"></i>
+        <span style="margin-left:10% ;" class="menu-title">Ajouter Client</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="fournisseurTabEc()">
+        <i class="ti-id-badge"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Clients</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="storeEc()">
+        <i class="ti-shopping-cart-full"></i>
+        <span style="margin-left:10% ;" class="menu-title">Store</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="commandeTabEc()">
+        <i class="ti-layout-grid4"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Commandes</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="tachesTabEc()">
+        <i class="ti-import"></i>
+        <span style="margin-left:10%;" class="menu-title">Tâche Responsable</span>
+      </a>
+    </li>
+    <div style="margin-top:170px;margin-left:4px;" class="wrapper two">
+      <div class="neon">
+          <h6>assistante commercial</h6>
+      </div>
+    </div>
+  </ul>
+</nav>
+<!-- employeur financier -->
+<nav class="sidebar sidebar-offcanvas fixed-top d-flex flex-row" id="sidebar" style="margin-top:60px ;width:240px;" *ngIf="!efIsAuthenticated">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" (click)="facturesTabEf()">
+        <i class="ti-printer"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Factures</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="reclamationTabEf()">
+        <i class="ti-layout-menu-v"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Reclamations</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="tachesTabEf()">
+        <i class="ti-import"></i>
+        <span style="margin-left:10%;" class="menu-title">Tâche Responsable</span>
+      </a>
+    </li>
+    <div style="margin-top:338px;margin-left:4px;" class="wrapper two">
+      <div class="neon">
+          <h6>assistante financier</h6>
+      </div>
+    </div>
+  </ul>
+</nav>
+<!-- employeur technique -->
+<nav class="sidebar sidebar-offcanvas fixed-top d-flex flex-row" id="sidebar" style="margin-top:60px ;width:240px;" *ngIf="!etIsAuthenticated">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" (click)="reclamationTabEt()">
+        <i class="ti-layout-menu-v"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Reclamations</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="tachesTabEt()">
+        <i class="ti-import"></i>
+        <span style="margin-left:10%;" class="menu-title">Tâche Responsable</span>
+      </a>
+    </li>
+    <div style="margin-top:410px;margin-left:4px;" class="wrapper two">
+      <div class="neon">
+          <h6>assistante technique</h6>
+      </div>
+    </div>
+  </ul>
+</nav>
+<!-- fournisseur -->
+<nav class="sidebar sidebar-offcanvas fixed-top d-flex flex-row" id="sidebar" style="margin-top:60px ;width:240px;" *ngIf="!fournisseurIsAuthenticated">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" (click)="storeClient()">
+        <i class="ti-shopping-cart"></i>
+        <span style="margin-left:10% ;" class="menu-title">Store</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="commandeTabClient()">
+        <i class="ti-layout-grid4"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Commandes</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="factureTabClient()">
+        <i class="ti-printer"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Factures</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="addReclamationClient()">
+        <i class="ti-clipboard"></i>
+        <span style="margin-left:10% ;" class="menu-title">Ajouter Reclamation</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="reclamationTabClient()">
+        <i class="ti-layout-menu-v"></i>
+        <span style="margin-left:10% ;" class="menu-title">Tableau Reclamations</span>
+      </a>
+    </li>
+    <div style="margin-top:170px;margin-left:8px;" class="wrapper two">
+      <div class="neon">
+          <h6>Client</h6>
+      </div>
+    </div>
+  </ul>
+</nav>

@@ -1,0 +1,99 @@
+<div class="col-lg-12 grid-margin stretch-card" style="margin-top: 70px;">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Tableau Commandes</h4>
+        <div class="row">
+          <div class="col-4">
+          </div>
+          <div class="col-4">
+            <input type="text" class="input-group form-control" [(ngModel)]="termId" name="Search"
+            placeholder="Search by REF" style="border-color:rgb(203, 0, 0);width:380px;height:40px;margin-top:5px;">
+          </div>
+          <div class="col-4">
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>
+                  REF
+                </th>
+                <th>
+                  image produit
+                </th>
+                <th>
+                  Nom produit
+                </th>
+                <th>
+                  quantité
+                </th>
+                <th>
+                  Prix
+                </th>
+                <th>
+                    image clinet
+                </th>
+                <th>
+                    Name clinet
+                </th>
+                <th>
+                  Status
+                </th>
+                <th>
+                  action
+                </th>
+                <th>
+                   Delet
+                </th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let C of pageOfItems">
+              <tr>
+                <td>
+                  {{C._id}}
+                </td>
+                <td class="py-1">
+                  <img [src]="C.product[0].avatar" alt="image"/>
+                </td>
+                <td>
+                  {{C.product[0].name}}
+                </td>
+                <td>
+                  {{C.qty}}
+                </td>
+                <td>
+                  {{C.product[0].prix}}DT
+                </td>
+                <td>
+                    <img [src]="C.client[0].avatar" alt="image"/>
+                </td>
+                <td style="color: blue;">
+                    {{C.client[0].firstName}} {{C.client[0].lastName}}
+                </td>
+                <td>
+                  <div *ngIf="C.status=='yes'" class="badge badge-success">En Stock</div>
+                  <div *ngIf="C.status=='no'" class="badge badge-danger">non Stock</div>
+                </td>
+                <td>
+                  <div *ngIf="C.status=='yes'" class="stock-status out-of-stock">
+                    <button (click)="editStatusCommande(C._id,'no')" class="stock-button"><i class="ti-close"></i>&nbsp;Non Stock</button>
+                    </div>   
+                    <div *ngIf="C.status=='no'" class="stock-status in-stock">
+                    <button (click)="editStatusCommande(C._id,'yes')" class="stock-button"><i class="ti-angle-down"></i>&nbsp;En Stock</button>
+                    </div>
+                </td>
+                <td>
+                <button (click)="Delet(C._id)" type="button" class="btn btn-inverse-danger btn-icon">
+                 <i class="ti-trash"></i></button> 
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="card-footer pb-0 pt-10">
+            <jw-pagination [items]="commandesTab| filterId:termId" (changePage)="onChangePage($event)"[pageSize]="10"></jw-pagination>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,142 @@
+<div style="margin-top:75px;" class="container">
+    <div class="row">
+        <div class="col-lg-4 mb-lg-0 mb-3"> 
+            <div class="card p-3">
+                <div class="img-box">
+                    <img src="assets/img/avatar-visa.png" alt="">
+                </div>
+                <div class="number">
+                    <label class="fw-bold" for="">**** **** **** 1060</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-lg-0 mb-3">
+            <div class="card p-3">
+                <div class="img-box">
+                    <img src="assets/img/avatar-master-card.png"
+                        alt="">
+                </div>
+                <div class="number">
+                    <label class="fw-bold">**** **** **** 5446</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-lg-0 mb-3">
+            <div class="card p-3">
+                <div class="img-box">
+                    <img src="assets/img/avatar-d17.png">
+                </div>
+                <div class="number">
+                    <label class="fw-bold">**** **** **** 9686</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-4">
+            <div class="card p-3">
+                <p class="mb-0 fw-bold h4">Payment Methods</p>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card p-3">
+                <div class="card-body border p-0">
+                    <p>
+                        <a class="btn btn-primary p-2 w-100 h-100 d-flex align-items-center justify-content-between"
+                            data-bs-toggle="collapse" role="button" aria-expanded="true"
+                            aria-controls="collapseExample">
+                            <span class="fw-bold">Credit Card</span>
+                            <span class="">
+                                <span class="fab fa-cc-amex"></span>
+                                <span class="fab fa-cc-mastercard"></span>
+                                <span class="fab fa-cc-discover"></span>
+                            </span>
+                        </a>
+                    </p>
+                    <div class="collapse show p-3 pt-0">
+                        <div class="row">
+                            <div class="col-lg-5 mb-lg-0 mb-3">
+                                <p class="h4 mb-0">résumé</p>
+                                <p class="mb-0"><span class="fw-bold">Produit:</span>
+                                    <span style="color: red;" class="c-green">{{commande[0].product[0].name}}</span>
+                                </p>
+                                <p class="mb-0">
+                                    <span class="fw-bold">Prix:</span>
+                                    <span class="c-green">{{commande[0].product[0].prix}}DT</span>
+                                </p>
+                                <p class="mb-0">
+                                    <span class="fw-bold">Quantité:</span>
+                                    <span class="c-green">{{commande[0].qty}}</span>
+                                </p>
+                                <p class="mb-0">
+                                    <span class="fw-bold">TVA:</span>
+                                    <span class="c-green">19%</span>
+                                </p>
+                                <p class="mb-0">
+                                    <span class="fw-bold">Total Prix:</span>
+                                    <span class="c-green">{{totalPrix}}DT</span>
+                                </p>
+                                <p class="mb-0"><span class="fw-bold">Entreprise:</span>
+                                    <span style="color:blue;" class="c-green">{{commande[0].entreprise[0].name}}</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-7">
+                                <form [formGroup]="factureForm" class="form">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form__div">
+                                                <h6 style="color:rgba(0, 0, 0, 0.344);">Card Number</h6>
+                                                <input formControlName="cardNumber" type="text" name="cardNumber" class="form-control">
+                                                <span *ngIf="factureForm.controls['cardNumber'].invalid && (factureForm.controls['cardNumber'].touched || factureForm.controls['cardNumber'].dirty)">
+                                                    <span *ngIf="factureForm.controls['cardNumber'].errors.required" style="color: rgba(33, 164, 0, 0.823);">Card Number is required</span>
+                                                    <span *ngIf="factureForm.controls['cardNumber'].errors.maxlength" style="color: rgba(33, 164, 0, 0.823);">Card Number must have at max 16 chars </span>
+                                                    <span *ngIf="factureForm.controls['cardNumber'].errors.minlength" style="color: rgba(33, 164, 0, 0.823);">Card Number must have at min 16 chars </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top:20px;" class="col-6">
+                                            <div class="form__div">
+                                                <h6 style="color:rgba(0, 0, 0, 0.344);">MM/YY</h6>
+                                                <input formControlName="dateCard" type="text" name="dateCard" class="form-control">
+                                                <span *ngIf="factureForm.controls['dateCard'].invalid && (factureForm.controls['dateCard'].touched || factureForm.controls['dateCard'].dirty)">
+                                                    <span *ngIf="factureForm.controls['dateCard'].errors.required" style="color: rgba(33, 164, 0, 0.823);">dateCard is required</span>
+                                                    <span *ngIf="factureForm.controls['dateCard'].errors.maxlength" style="color: rgba(33, 164, 0, 0.823);">dateCard must have at max 5 chars </span>
+                                                    <span *ngIf="factureForm.controls['dateCard'].errors.minlength" style="color: rgba(33, 164, 0, 0.823);">dateCard must have at min 5 chars </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                
+                                        <div style="margin-top:20px;" class="col-6">
+                                            <div class="form__div">
+                                                <h6 style="color:rgba(0, 0, 0, 0.344);">CVV Code</h6>
+                                                <input formControlName="cvvCode" type="text" name="cvvCode" class="form-control">
+                                                <span *ngIf="factureForm.controls['cvvCode'].invalid && (factureForm.controls['cvvCode'].touched || factureForm.controls['cvvCode'].dirty)">
+                                                    <span *ngIf="factureForm.controls['cvvCode'].errors.required" style="color: rgba(33, 164, 0, 0.823);">Cvv Code is required</span>
+                                                    <span *ngIf="factureForm.controls['cvvCode'].errors.maxlength" style="color: rgba(33, 164, 0, 0.823);">Cvv Code must have at max 3 chars </span>
+                                                    <span *ngIf="factureForm.controls['cvvCode'].errors.minlength" style="color: rgba(33, 164, 0, 0.823);">Cvv Code must have at min 3 chars </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top:20px;" class="col-12">
+                                            <div class="form__div">
+                                                <h6 style="color:rgba(0, 0, 0, 0.344);">Method Payment</h6>
+                                                <select formControlName="methodPayment"  name="methodPayment" class="form-control form-select-lg mb-3" aria-label=".form-select-lg example">
+                                                    <option value="Visa" >Visa</option>
+                                                    <option value="Master-card">Master-card</option>
+                                                    <option value="D17">D17</option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                        </div>
+                                        <div class="col-4">
+                                            <button (click)="addFacture(commande[0]._id,commande[0].productId,commande[0].clientId,commande[0].employeurId,commande[0].entrepriseId,commande[0].qty)"  [disabled]="factureForm.invalid" class="noselect"><span>Payer {{totalPrix}}DT</span></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
